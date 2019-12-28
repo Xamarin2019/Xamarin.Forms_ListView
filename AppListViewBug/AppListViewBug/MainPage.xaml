@@ -15,7 +15,7 @@
                 <DataTemplate>
                     <ViewCell>
 
-                        <StackLayout Orientation="Horizontal" VerticalOptions="Fill">
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Fill" HorizontalOptions="FillAndExpand">
                             <Label Text="{Binding}" HorizontalOptions="StartAndExpand"/>
                             <CheckBox Grid.Column="1" HorizontalOptions="End"/>
                         </StackLayout>
@@ -32,7 +32,7 @@
                 <DataTemplate>
                     <ViewCell>
 
-                        <Grid Padding="10,0,20,0" HorizontalOptions="Fill">
+                        <Grid Padding="10,0,20,0" HorizontalOptions="FillAndExpand">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="auto" />
