@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"><?define AppListViewBug.WPF_TargetDir=$(var.AppListViewBug.WPF.TargetDir)?><?define AppListViewBug_TargetDir=$(var.AppListViewBug.TargetDir)?>
+	<Product Id="*" Name="SetupProject1" Language="1033" Version="1.0.0.0" Manufacturer="I AM" UpgradeCode="fb4aa1a4-04fc-487c-829b-7abb54990276">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate />
+
+		<Feature Id="ProductFeature" Title="SetupProject1" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+		</Feature>
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLFOLDER" Name="SetupProject1" />
+			</Directory>
+		</Directory>
+	</Fragment>
+
+	<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+			<!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
+			<!-- <Component Id="ProductComponent"> -->
+				<!-- TODO: Insert files, registry keys, and other resources here. -->
+			<!-- </Component> -->
+			<Component Id="AppListViewBug.WPF.exe" Guid="36cb9b16-21bc-4008-bd83-f561b6bca304">
+			  <File Id="AppListViewBug.WPF.exe" Name="AppListViewBug.WPF.exe" Source="$(var.AppListViewBug.WPF_TargetDir)AppListViewBug.WPF.exe" />
+			</Component>
+			<Component Id="AppListViewBug.WPF.exe.config" Guid="eccd13c9-36d0-4960-a56c-388b71a2f74f">
+			  <File Id="AppListViewBug.WPF.exe.config" Name="AppListViewBug.WPF.exe.config" Source="$(var.AppListViewBug.WPF_TargetDir)AppListViewBug.WPF.exe.config" />
+			</Component>
+			<Component Id="Xamarin.Forms.Platform.WPF.dll" Guid="030ca7ec-f5ee-42a8-b384-5fa4037619fc">
+			  <File Id="Xamarin.Forms.Platform.WPF.dll" Name="Xamarin.Forms.Platform.WPF.dll" Source="$(var.AppListViewBug.WPF_TargetDir)Xamarin.Forms.Platform.WPF.dll" />
+			</Component>
+			<Component Id="AppListViewBug.dll" Guid="a7da3532-473b-4d26-a203-80c71f538ec6">
+			  <File Id="AppListViewBug.dll" Name="AppListViewBug.dll" Source="$(var.AppListViewBug_TargetDir)AppListViewBug.dll" />
+			</Component>
+			<Component Id="Xamarin.Forms.Core.dll" Guid="d4eb34db-b87b-4ae2-9911-3adb59fb2fbd">
+			  <File Id="Xamarin.Forms.Core.dll" Name="Xamarin.Forms.Core.dll" Source="$(var.AppListViewBug.WPF_TargetDir)Xamarin.Forms.Core.dll" />
+			</Component>
+			<Component Id="OpenTK.GLControl.dll" Guid="42587aac-242f-484a-a7bc-384957c558b4">
+			  <File Id="OpenTK.GLControl.dll" Name="OpenTK.GLControl.dll" Source="$(var.AppListViewBug.WPF_TargetDir)OpenTK.GLControl.dll" />
+			</Component>
+			<Component Id="OpenTK.dll" Guid="f4936727-a601-4137-89ff-6d1e971b3003">
+			  <File Id="OpenTK.dll" Name="OpenTK.dll" Source="$(var.AppListViewBug.WPF_TargetDir)OpenTK.dll" />
+			</Component>
+			<Component Id="netstandard.dll" Guid="365a5337-1e4c-4e75-bc45-75ed66dde83b">
+			  <File Id="netstandard.dll" Name="netstandard.dll" Source="$(var.AppListViewBug.WPF_TargetDir)netstandard.dll" />
+			</Component>
+			<Component Id="System.Data.Common.dll" Guid="9a83f5f0-b05d-48b0-aff2-abd2625c2965">
+			  <File Id="System.Data.Common.dll" Name="System.Data.Common.dll" Source="$(var.AppListViewBug.WPF_TargetDir)System.Data.Common.dll" />
+			</Component>
+			<Component Id="System.Diagnostics.StackTrace.dll" Guid="0e2ce0db-6bf6-4b8c-8864-ef8b07652209">
+			  <File Id="System.Diagnostics.StackTrace.dll" Name="System.Diagnostics.StackTrace.dll" Source="$(var.AppListViewBug.WPF_TargetDir)System.Diagnostics.StackTrace.dll" />
+			</Component>
+			<Component Id="System.Diagnostics.Tracing.dll" Guid="3066e960-c555-4fb9-ba11-2fc326857cdc">
+			  <File Id="System.Diagnostics.Tracing.dll" Name="System.Diagnostics.Tracing.dll" Source="$(var.AppListViewBug.WPF_TargetDir)System.Diagnostics.Tracing.dll" />
+			</Component>
+			<Component Id="System.Globalization.Extensions.dll" Guid="fde00de7-4016-4ab0-8d6a-4dccef308ff2">
+			  <File Id="System.Globalization.Extensions.dll" Name="System.Globalization.Extensions.dll" Source="$(var.AppListViewBug.WPF_TargetDir)System.Globalization.Extensions.dll" />
+			</Component>
+			<Component Id="System.IO.Compression.dll" Guid="bf4cc3cb-2896-438e-b886-9c0187b0ca21">
+			  <File Id="System.IO.Compression.dll" Name="System.IO.Compression.dll" Source="$(var.AppListViewBug.WPF_TargetDir)System.IO.Compression.dll" />
+			</Component>
+			<Component Id="System.Net.Http.dll" Guid="600593b8-a7a6-4564-ac18-395be4c3af2f">
+			  <File Id="System.Net.Http.dll" Name="System.Net.Http.dll" Source="$(var.AppListViewBug.WPF_TargetDir)System.Net.Http.dll" />
+			</Component>
+			<Component Id="System.Net.Sockets.dll" Guid="65b46d64-8f2f-4a13-9aec-4ecf23f965f3">
+			  <File Id="System.Net.Sockets.dll" Name="System.Net.Sockets.dll" Source="$(var.AppListViewBug.WPF_TargetDir)System.Net.Sockets.dll" />
+			</Component>
+			<Component Id="System.ValueTuple.dll" Guid="7cb2a602-d1d4-42bc-b901-0bde3dca7d1a">
+			  <File Id="System.ValueTuple.dll" Name="System.ValueTuple.dll" Source="$(var.AppListViewBug.WPF_TargetDir)System.ValueTuple.dll" />
+			</Component>
+			<Component Id="System.Runtime.InteropServices.RuntimeInformation.dll" Guid="ab8c63db-7e00-4c5a-9fbc-a5d4e9e51131">
+			  <File Id="System.Runtime.InteropServices.RuntimeInformation.dll" Name="System.Runtime.InteropServices.RuntimeInformation.dll" Source="$(var.AppListViewBug.WPF_TargetDir)System.Runtime.InteropServices.RuntimeInformation.dll" />
+			</Component>
+			<Component Id="System.Runtime.Serialization.Xml.dll" Guid="901bbb0c-81e2-4515-8232-198b60b27565">
+			  <File Id="System.Runtime.Serialization.Xml.dll" Name="System.Runtime.Serialization.Xml.dll" Source="$(var.AppListViewBug.WPF_TargetDir)System.Runtime.Serialization.Xml.dll" />
+			</Component>
+			<Component Id="System.Runtime.Serialization.Primitives.dll" Guid="47d862f6-5240-4ddb-a25f-835b5cef2c49">
+			  <File Id="System.Runtime.Serialization.Primitives.dll" Name="System.Runtime.Serialization.Primitives.dll" Source="$(var.AppListViewBug.WPF_TargetDir)System.Runtime.Serialization.Primitives.dll" />
+			</Component>
+			<Component Id="System.Security.Cryptography.Algorithms.dll" Guid="05624aa4-882e-429d-ae1b-8bb8e6f96a41">
+			  <File Id="System.Security.Cryptography.Algorithms.dll" Name="System.Security.Cryptography.Algorithms.dll" Source="$(var.AppListViewBug.WPF_TargetDir)System.Security.Cryptography.Algorithms.dll" />
+			</Component>
+			<Component Id="System.Security.SecureString.dll" Guid="882488e4-2e9a-45fa-bece-5bc9d38b96f0">
+			  <File Id="System.Security.SecureString.dll" Name="System.Security.SecureString.dll" Source="$(var.AppListViewBug.WPF_TargetDir)System.Security.SecureString.dll" />
+			</Component>
+			<Component Id="System.Threading.Overlapped.dll" Guid="25e4a8bd-ac35-4adc-a99f-7d55d10ba74c">
+			  <File Id="System.Threading.Overlapped.dll" Name="System.Threading.Overlapped.dll" Source="$(var.AppListViewBug.WPF_TargetDir)System.Threading.Overlapped.dll" />
+			</Component>
+			<Component Id="System.Xml.XPath.XDocument.dll" Guid="b1855f80-aeca-4fa9-91a7-1742b9d00f77">
+			  <File Id="System.Xml.XPath.XDocument.dll" Name="System.Xml.XPath.XDocument.dll" Source="$(var.AppListViewBug.WPF_TargetDir)System.Xml.XPath.XDocument.dll" />
+			</Component>
+			<Component Id="Xamarin.Forms.Xaml.dll" Guid="dfaa1adf-a075-46f2-bc8e-213ca8bc1074">
+			  <File Id="Xamarin.Forms.Xaml.dll" Name="Xamarin.Forms.Xaml.dll" Source="$(var.AppListViewBug.WPF_TargetDir)Xamarin.Forms.Xaml.dll" />
+			</Component>
+			<Component Id="Xamarin.Forms.Platform.dll" Guid="d5c9b75c-0463-45e4-81c8-df88a7b981ac">
+			  <File Id="Xamarin.Forms.Platform.dll" Name="Xamarin.Forms.Platform.dll" Source="$(var.AppListViewBug.WPF_TargetDir)Xamarin.Forms.Platform.dll" />
+			</Component>
+		</ComponentGroup>
+	</Fragment>
+</Wix>
