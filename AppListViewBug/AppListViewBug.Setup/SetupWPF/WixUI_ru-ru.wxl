@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WixLocalization Culture="ru-ru" xmlns="http://schemas.microsoft.com/wix/2006/localization">
+  <String Id="LANG" Overridable="yes">1046</String>
+	<String Id="YOURLOCID" Overridable="yes">Моя локализованая строка</String>
+</WixLocalization>
