@@ -6,73 +6,100 @@
              SizeChanged="ContentPage_SizeChanged"
              x:Name="this">
 
-    <StackLayout>
-
-        <Label Text="ListView whith StackLayout ViewCell" FontSize="Medium" />
-
-        <ListView x:Name="myListStack" ItemsSource="{Binding}" SeparatorVisibility="Default" SeparatorColor="Black">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-
-                        <StackLayout Orientation="Horizontal" VerticalOptions="Fill" HorizontalOptions="FillAndExpand">
-                            <Label Text="{Binding}" HorizontalOptions="StartAndExpand"/>
-                            <CheckBox Grid.Column="1" HorizontalOptions="End"/>
-                        </StackLayout>
-
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-
-        <Label Text="ListView whith Grid ViewCell" FontSize="Medium" />
-
-        <ListView x:Name="myListGrid" ItemsSource="{Binding}" >
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-
-                        <Grid Padding="10,0,20,0" HorizontalOptions="FillAndExpand">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="auto" />
-                            </Grid.ColumnDefinitions>
-
-                            <Label Text="{Binding}"  HorizontalOptions="StartAndExpand" />
-                            <CheckBox Grid.Column="1"/>
-
-                        </Grid>
-
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+    <!--<StackLayout Orientation="Vertical">-->
 
 
-        <Label BindingContext = "{x:Reference Name=this}" Text="{Binding Path=myWidth, StringFormat='ListView whith column changing. myWidth = {0:F2}'}"  FontSize="Medium"/>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Text="ListView whith StackLayout ViewCell" FontSize="Medium" />
 
-        <ListView x:Name="myListGridChanging" ItemsSource="{Binding}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
+            <ListView Grid.Row="1" x:Name="myListStack" ItemsSource="{Binding}" SeparatorVisibility="Default" SeparatorColor="Black">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
 
-                        <Grid Padding="10,0,20,0" HorizontalOptions="StartAndExpand" >
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition BindingContext = "{x:Reference Name=this}" Width="{Binding myWidth}"/>
-                                <ColumnDefinition Width="auto" />
-                            </Grid.ColumnDefinitions>
+                            <StackLayout Orientation="Horizontal" VerticalOptions="Fill" HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding}" HorizontalOptions="StartAndExpand"/>
+                                <CheckBox Grid.Column="1" HorizontalOptions="End"/>
+                            </StackLayout>
 
-                            <Label Text="{Binding}" />
-                            <CheckBox Grid.Column="1" />
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+        
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
 
-                        </Grid>
+            <Label Text="ListView whith Grid ViewCell" FontSize="Medium" />
 
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            <ListView Grid.Row="1" x:Name="myListGrid" ItemsSource="{Binding}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
 
-    </StackLayout>
+                            <Grid Padding="10,0,20,0" HorizontalOptions="FillAndExpand">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="{Binding}"  HorizontalOptions="StartAndExpand" />
+                                <CheckBox Grid.Column="1"/>
+
+                            </Grid>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+        
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Label BindingContext = "{x:Reference Name=this}" Text="{Binding Path=myWidth, StringFormat='ListView whith column changing. myWidth = {0:F2}'}"  FontSize="Medium"/>
+
+            <ListView Grid.Row="1" x:Name="myListGridChanging" ItemsSource="{Binding}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+
+                            <Grid Padding="10,0,20,0" HorizontalOptions="StartAndExpand" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition BindingContext = "{x:Reference Name=this}" Width="{Binding myWidth}"/>
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="{Binding}" />
+                                <CheckBox Grid.Column="1" />
+
+                            </Grid>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </Grid>
+
+    <!--</StackLayout>-->
 
 
 </ContentPage>
